@@ -4,9 +4,8 @@ Oliver Wilkins: 2020-02-06
 This script sends a device's public IP address to a given email address.
 '''
 
-from CoreFunctions.Email import Email
+from CoreFunctions import Email, get_ip
 import json
-import requests
 
 
 def get_email_pwd():
@@ -17,18 +16,6 @@ def get_email_pwd():
         data = json.loads(json_file.read())
 
     return data
-
-
-def get_ip():
-    # Gets current public IP address
-
-    print('Requesting public ip address...')
-    r = requests.get('http://ip.me')
-    ip = r.text.strip()
-
-    print('IP Address: ' + ip + '\n')
-
-    return ip
 
 
 def send_ip(email, pwd, ip):
