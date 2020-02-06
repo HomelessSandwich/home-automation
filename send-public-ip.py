@@ -84,6 +84,12 @@ def send_ip(email, pwd, ip):
 
 
 if __name__ == '__main__':
+
+    print()
+    print('-' * 10)
+    print(f'Send IP Address Service started at : {datetime.now()}')
+    print()
+
     email_pwd = get_email_pwd()
     db_details = get_db_details()
     ip = get_ip()
