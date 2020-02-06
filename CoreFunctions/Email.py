@@ -7,15 +7,11 @@ class Email():
         self.self_email = self_email
         self.password = password
 
-    def __enter__(self):
-        self.smtp = smtplib.SMTP('localhost', 1025)
+        self.smtp = smtplib.SMTP('smtp.gmail.com:587')
         self.smtp.ehlo()
         self.smtp.starttls()
         self.smtp.ehlo()
         self.smtp.login(user=self.self_email, password=self.password)
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.smtp.quit()
 
     def send(self, subject, body, to_email):
         msg = MIMEText(body)
